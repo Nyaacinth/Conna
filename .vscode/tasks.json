@@ -3,20 +3,20 @@
     "tasks": [
         {
             "label": "Launch Development Server",
-            "type": "npm",
+            "type": "bun",
             "script": "dev:vite",
             "isBackground": true,
             "group": "build"
         },
         {
             "label": "Build Vite Application",
-            "type": "npm",
+            "type": "bun",
             "script": "build:vite",
             "group": "build"
         },
         {
             "label": "Build Tauri Application",
-            "type": "npm",
+            "type": "bun",
             "script": "build:tauri",
             "group": "build"
         }

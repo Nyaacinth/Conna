@@ -1,42 +1,33 @@
 {
-    "name": "react-template",
+    "name": "conna",
     "private": true,
     "version": "1.0.0",
     "type": "module",
-    "packageManager": "pnpm@8.6.10",
     "scripts": {
         "dev:vite": "vite",
-        "build:vite": "vite build",
+        "build:vite": "biome check . && vite build",
         "dev:tauri": "vite --config vite.tauri.config.ts",
-        "build:tauri": "vite build --config vite.tauri.config.ts"
+        "build:tauri": "biome check . && vite build --config vite.tauri.config.ts"
     },
     "dependencies": {
-        "@tauri-apps/api": "^1.4.0",
-        "@unocss/reset": "^0.53.6",
-        "mobx": "^6.10.0",
-        "mobx-react-lite": "^4.0.3",
+        "@unocss/reset": "^0.58.0",
+        "jotai": "^2.6.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-router-dom": "^6.14.2",
-        "react-use": "^17.4.0"
+        "react-router-dom": "^6.21.1",
+        "react-use": "^17.4.2"
     },
     "devDependencies": {
-        "@tauri-apps/cli": "^1.4.0",
-        "@types/react": "^18.2.17",
-        "@types/react-dom": "^18.2.7",
-        "@typescript-eslint/eslint-plugin": "^6.2.0",
-        "@typescript-eslint/parser": "^6.2.0",
-        "@unocss/preset-wind": "^0.53.6",
-        "@unocss/transformer-variant-group": "^0.53.6",
-        "@vitejs/plugin-react": "^4.0.3",
-        "eslint": "^8.45.0",
-        "eslint-plugin-react": "^7.33.0",
-        "eslint-plugin-react-hooks": "^4.6.0",
-        "prettier": "^3.0.0",
-        "typescript": "^5.1.6",
-        "unocss": "^0.53.6",
-        "vite": "^4.4.7",
-        "vite-plugin-checker": "^0.6.1",
+        "@biomejs/biome": "^1.4.1",
+        "@tauri-apps/cli": "^1.5.9",
+        "@types/react": "^18.2.45",
+        "@types/react-dom": "^18.2.18",
+        "@unocss/preset-wind": "^0.58.0",
+        "@unocss/transformer-variant-group": "^0.58.0",
+        "@vitejs/plugin-react": "^4.2.1",
+        "typescript": "^5.3.3",
+        "unocss": "^0.58.0",
+        "vite": "^5.0.10",
         "vite-plugin-tauri": "^3.3.0"
     }
 }
