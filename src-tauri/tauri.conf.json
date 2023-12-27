@@ -9,6 +9,7 @@
         "withGlobalTauri": false
     },
     "tauri": {
+        "macOSPrivateApi": true,
         "windows": [
             {
                 "title": "Conna",
@@ -17,11 +18,16 @@
                 "height": 624,
                 "minHeight": 300,
                 "resizable": true,
-                "fullscreen": false
+                "fullscreen": false,
+                "titleBarStyle": "Overlay",
+                "hiddenTitle": true,
+                "transparent": true
             }
         ],
         "allowlist": {
-            "all": false
+            "window": {
+                "all": true
+            }
         },
         "security": {
             "csp": null
