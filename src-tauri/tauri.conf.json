@@ -18,12 +18,11 @@
             {
                 "label": "main",
                 "title": "Conna",
-                "width": 624,
-                "height": 468,
-                "resizable": false,
+                "width": 468,
+                "height": 351,
+                "resizable": true,
                 "fullscreen": false,
-                "titleBarStyle": "Overlay",
-                "hiddenTitle": true,
+                "decorations": false,
                 "transparent": true,
                 "visible": false
             }

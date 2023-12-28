@@ -7,7 +7,7 @@ export const Splash: FunctionComponent = () => {
     return (
         <div className="h-full flex items-center justify-center bg-transparent">
             {!error ? (
-                <div className="rounded-lg max-w-lg border border-gray bg-light text-dark shadow-md p-6 font-light rotate--1">
+                <div className="relative rounded-lg w-90% h-90% border border-gray bg-light text-dark shadow-md p-6 font-light rotate--1">
                     <div className="p-6 text-xl relative mb-2">
                         <svg
                             role="button"
@@ -30,7 +30,7 @@ export const Splash: FunctionComponent = () => {
                         </svg>
                         {isLoading ? "Loading..." : data?.hitokoto}
                     </div>
-                    <div className="flex flex-col space-y-1.5 p-6 pt-0 text-right">
+                    <div className="absolute right-0 bottom-0 flex flex-col space-y-1.5 p-6 pt-0 text-right">
                         <h3 className="font-semibold tracking-tight text-base">{!isLoading && data?.creator}</h3>
                         <p className="text-sm text-gray-6">{!isLoading && `UID: ${data?.creator_uid}`}</p>
                     </div>
