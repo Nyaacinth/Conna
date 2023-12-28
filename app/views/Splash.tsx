@@ -5,7 +5,7 @@ export const Splash: FunctionComponent = () => {
     const { data, isLoading, error, mutate } = useHitokoto()
 
     return (
-        <div data-tauri-drag-region className="h-full flex items-center justify-center bg-transparent">
+        <div className="h-full flex items-center justify-center bg-transparent">
             {!error ? (
                 <div className="rounded-lg max-w-lg border border-gray bg-light text-dark shadow-md p-6 font-light rotate--1">
                     <div className="p-6 text-xl relative mb-2">
