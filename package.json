@@ -10,6 +10,7 @@
         "build:tauri": "biome check . && vite build --config vite.tauri.config.ts"
     },
     "dependencies": {
+        "@tauri-apps/api": "^1.5.3",
         "@unocss/reset": "^0.58.0",
         "jotai": "^2.6.0",
         "react": "^18.2.0",

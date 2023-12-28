@@ -1,3 +1,4 @@
+import { window as tauriWindow } from "@tauri-apps/api"
 import { FunctionComponent } from "react"
 import { useHitokoto } from "../hooks/useHitokoto"
 
@@ -29,6 +30,24 @@ export const Splash: FunctionComponent = () => {
                             <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
                         </svg>
                         {isLoading ? "Loading..." : data?.hitokoto}
+                        <svg
+                            role="button"
+                            onClick={() => tauriWindow.appWindow.hide()}
+                            onKeyDown={() => tauriWindow.appWindow.hide()}
+                            className="absolute right-0 top-0 text-gray-5"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 16 16"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <title>Close Button</title>
+                            <path
+                                fill="currentColor"
+                                fill-rule="evenodd"
+                                d="M3.47 3.47a.75.75 0 0 1 1.06 0L8 6.94l3.47-3.47a.75.75 0 1 1 1.06 1.06L9.06 8l3.47 3.47a.75.75 0 1 1-1.06 1.06L8 9.06l-3.47 3.47a.75.75 0 0 1-1.06-1.06L6.94 8L3.47 4.53a.75.75 0 0 1 0-1.06"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
                     </div>
                     <div className="absolute right-0 bottom-0 flex flex-col space-y-1.5 p-6 pt-0 text-right">
                         <h3 className="font-semibold tracking-tight text-base">{!isLoading && data?.creator}</h3>
