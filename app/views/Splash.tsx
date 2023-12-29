@@ -51,7 +51,7 @@ export const Splash: FunctionComponent = () => {
                     </div>
                     <div className="absolute right-0 bottom-0 flex flex-col space-y-1.5 p-6 pt-0 text-right">
                         <h3 className="font-semibold tracking-tight text-base">{!isLoading && data?.creator}</h3>
-                        <p className="text-sm text-gray-6">{!isLoading && `UID: ${data?.creator_uid}`}</p>
+                        <p className="text-sm text-gray-6">{!isLoading && `UID: ${data?.creatorUid}`}</p>
                     </div>
                 </div>
             ) : (
