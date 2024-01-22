@@ -5,9 +5,9 @@
     "type": "module",
     "scripts": {
         "dev:vite": "vite",
-        "build:vite": "biome check . && vite build",
+        "build:vite": "tsc && biome check . && vite build",
         "dev:tauri": "vite --config vite.tauri.config.ts",
-        "build:tauri": "biome check . && vite build --config vite.tauri.config.ts"
+        "build:tauri": "tsc && biome check . && vite build --config vite.tauri.config.ts"
     },
     "dependencies": {
         "@tauri-apps/api": "^1.5.3",
