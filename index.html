@@ -4,23 +4,22 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script type="module" src="./app/index.tsx"></script>
-        <title>Conna</title>
+        <title>Ringo</title>
     </head>
     <body>
         <div id="app"></div>
     </body>
     <style>
-        html,
+        html {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
         body {
             height: 100%;
-        }
-        body {
-            overflow: hidden;
-            overscroll-behavior: none;
+            overflow: auto;
         }
         #app {
-            display: flex;
-            flex-direction: column;
             height: 100%;
         }
     </style>
