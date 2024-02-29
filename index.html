@@ -10,17 +10,34 @@
         <div id="app"></div>
     </body>
     <style>
+        /* Disable bounces and overscroll behaviors, also expands root element */
         html {
+            overscroll-behavior: none;
+            overflow: hidden;
             height: 100vh;
             width: 100vw;
-            overflow: hidden;
         }
         body {
-            height: 100%;
             overflow: auto;
+            height: 100%;
         }
         #app {
             height: 100%;
+        }
+
+        /* Disable text selection and I-beam for normal ui, except editable elements */
+        :root {
+            -webkit-user-select: none;
+            user-select: none;
+            cursor: default;
+        }
+        input,
+        textarea,
+        select,
+        [contenteditable] {
+            -webkit-user-select: text;
+            user-select: text;
+            cursor: text;
         }
     </style>
 </html>

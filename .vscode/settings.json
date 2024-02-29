@@ -1,5 +1,7 @@
 {
-    "editor.codeActionsOnSave": { "source.organizeImports": "explicit" },
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.codeActionsOnSave": { "source.organizeImports": "explicit" },
+    "eslint.experimental.useFlatConfig": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.ignorePath": ".gitignore"
 }

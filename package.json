@@ -3,33 +3,40 @@
     "private": true,
     "version": "1.0.0",
     "type": "module",
+    "packageManager": "pnpm@8.15.4",
     "scripts": {
         "dev:vite": "vite",
-        "build:vite": "tsc && biome check . && vite build",
+        "build:vite": "tsc && eslint . && vite build",
         "dev:tauri": "vite --config vite.tauri.config.ts",
-        "build:tauri": "tsc && biome check . && vite build --config vite.tauri.config.ts"
+        "build:tauri": "tsc && eslint . && vite build --config vite.tauri.config.ts"
     },
     "dependencies": {
         "@tauri-apps/api": "^1.5.3",
-        "@unocss/reset": "^0.58.3",
-        "jotai": "^2.6.1",
+        "@unocss/reset": "^0.58.5",
+        "jotai": "^2.7.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-use": "^17.4.2",
-        "swr": "^2.2.4",
-        "wouter": "^2.12.1"
+        "react-use": "^17.5.0",
+        "swr": "^2.2.5",
+        "wouter": "^3.0.1"
     },
     "devDependencies": {
-        "@biomejs/biome": "^1.4.1",
-        "@tauri-apps/cli": "^1.5.9",
-        "@types/react": "^18.2.47",
-        "@types/react-dom": "^18.2.18",
-        "@unocss/preset-wind": "^0.58.3",
-        "@unocss/transformer-variant-group": "^0.58.3",
+        "@tauri-apps/cli": "^1.5.10",
+        "@types/react": "^18.2.60",
+        "@types/react-dom": "^18.2.19",
+        "@typescript-eslint/eslint-plugin": "^7.1.0",
+        "@typescript-eslint/parser": "^7.1.0",
+        "@unocss/preset-wind": "^0.58.5",
+        "@unocss/transformer-variant-group": "^0.58.5",
         "@vitejs/plugin-react": "^4.2.1",
+        "eslint": "^8.57.0",
+        "eslint-plugin-react": "^7.33.2",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.5",
+        "prettier": "^3.2.5",
         "typescript": "^5.3.3",
-        "unocss": "^0.58.3",
-        "vite": "^5.0.11",
+        "unocss": "^0.58.5",
+        "vite": "^5.1.4",
         "vite-plugin-tauri": "^3.3.0"
     }
 }
