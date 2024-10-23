@@ -1,0 +1,33 @@
+{
+    "name": "conna",
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "dev-tauri": "tauri dev",
+        "build-tauri": "tauri build"
+    },
+    "dependencies": {
+        "@tauri-apps/api": "^2.0.3"
+    },
+    "devDependencies": {
+        "@sveltejs/adapter-static": "^3.0.5",
+        "@sveltejs/kit": "^2.7.2",
+        "@sveltejs/vite-plugin-svelte": "^4.0.0",
+        "@tauri-apps/cli": "^2.0.4",
+        "@types/eslint": "^9.6.1",
+        "@typescript-eslint/eslint-plugin": "^8.11.0",
+        "@typescript-eslint/parser": "^8.11.0",
+        "eslint": "^9.13.0",
+        "eslint-plugin-svelte": "^2.46.0",
+        "prettier": "^3.3.3",
+        "prettier-plugin-svelte": "^3.2.7",
+        "svelte": "^5.1.0",
+        "svelte-check": "^4.0.5",
+        "svelte-eslint-parser": "^0.43.0",
+        "typescript": "^5.6.3",
+        "vite": "^5.4.10"
+    }
+}
