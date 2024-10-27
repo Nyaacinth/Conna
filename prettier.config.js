@@ -1,3 +1,5 @@
+import svelte from "prettier-plugin-svelte"
+
 /** @type {import("prettier").Config} */
 export default {
     printWidth: 120,
@@ -14,7 +16,7 @@ export default {
     endOfLine: "lf",
     embeddedLanguageFormatting: "auto",
     singleAttributePerLine: false,
-    plugins: ["prettier-plugin-svelte"],
+    plugins: [svelte],
     overrides: [
         {
             files: "*.svelte",

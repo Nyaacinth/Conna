@@ -1,18 +1,18 @@
 {
     "name": "conna",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "type": "module",
     "scripts": {
         "dev": "vite dev",
         "build": "vite build",
         "preview": "vite preview",
-        "dev-tauri": "tauri dev",
-        "build-tauri": "tauri build"
+        "tauri": "tauri"
     },
     "dependencies": {
         "@tauri-apps/api": "^2.0.3"
     },
     "devDependencies": {
+        "@iconify-json/mdi": "^1.2.1",
         "@sveltejs/adapter-static": "^3.0.5",
         "@sveltejs/kit": "^2.7.2",
         "@sveltejs/vite-plugin-svelte": "^4.0.0",
@@ -20,6 +20,12 @@
         "@types/eslint": "^9.6.1",
         "@typescript-eslint/eslint-plugin": "^8.11.0",
         "@typescript-eslint/parser": "^8.11.0",
+        "@unocss/preset-icons": "^0.63.6",
+        "@unocss/preset-uno": "^0.63.6",
+        "@unocss/reset": "^0.63.6",
+        "@unocss/svelte-scoped": "^0.63.6",
+        "@unocss/transformer-directives": "^0.63.6",
+        "@unocss/transformer-variant-group": "^0.63.6",
         "eslint": "^9.13.0",
         "eslint-plugin-svelte": "^2.46.0",
         "prettier": "^3.3.3",
@@ -28,6 +34,7 @@
         "svelte-check": "^4.0.5",
         "svelte-eslint-parser": "^0.43.0",
         "typescript": "^5.6.3",
+        "unocss": "^0.63.6",
         "vite": "^5.4.10"
     }
 }
