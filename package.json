@@ -13,6 +13,7 @@
         "stop": "bun run ./scripts/stop.mjs",
         "scapp32": "bun run ./scripts/start.mjs scapp32",
         "usciter32": "bun run ./scripts/start.mjs usciter32",
+        "sciter-build": "bun run ./scripts/build.mjs",
         "$$separator1$$": "echo 'why?'",
         "build": "rspack build",
         "watch": "rspack build --watch"

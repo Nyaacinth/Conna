@@ -2,7 +2,7 @@
     <head>
         <title>Build Executable</title>
         <style>
-            @import url(node_modules/sciter-logger/src/logger.css);
+            @import url(../node_modules/sciter-logger/src/logger.css);
 
             plaintext#logger {
                 height: *;
@@ -12,8 +12,8 @@
             import * as Env from "@env"
             import * as Sciter from "@sciter"
             import * as Sys from "@sys"
-            import Logger from "node_modules/sciter-logger/src/logger.js"
-            import Utils from "node_modules/sciter-utils/src/utils.js"
+            import Logger from "../node_modules/sciter-logger/src/logger.js"
+            import Utils from "../node_modules/sciter-utils/src/utils.js"
 
             const resources = "resources.dat"
             const icon = "app.ico"
@@ -80,7 +80,7 @@
                 console.line()
 
                 // load manifest info
-                const url = document.url("src/package.json")
+                const url = document.url("../src/package.json")
 
                 // get content
                 let manifest = fetch(url, { sync: true })
