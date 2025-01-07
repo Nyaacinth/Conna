@@ -1,0 +1,277 @@
+<html window-width="600dip" window-height="200dip">
+    <head>
+        <title>Sandbox</title>
+        <style>
+            @set std-toggle < std-toggle {
+                :root:checked::marker {
+                    border: 1dip solid blue;
+                    background: blue;
+                }
+            }
+
+            body {
+                margin: 0;
+                border-spacing: 0.5em;
+            }
+
+            div.hbox {
+                flow: horizontal;
+                vertical-align: middle;
+                border-spacing: 1em;
+            }
+
+            div.hbox:first-child {
+                margin-left: 0.5em;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            .show {
+                display: inline;
+            }
+
+            html {
+                var(displayDebug): none;
+            }
+
+            debug {
+                display: var(displayDebug);
+            }
+        </style>
+        <script type="module">
+            import * as Sys from "@sys"
+            import * as Sciter from "@sciter"
+
+            let Logger
+            let Utils
+
+            let entry
+            let watch
+
+            let isReloading
+            let window
+
+            document.on("ready", function () {
+                const path = __DIR__.includes("node_modules") ? "../../" : "../node_modules/"
+
+                // dynamic import logger css
+                document.head.insertAdjacentHTML(
+                    "beforeend",
+                    `<style src="${path + "sciter-logger/src/logger.css"}" />`
+                )
+
+                // dynamic and synchronous import logger and utils (hack to solve static import path issues)
+                let module = Sciter.import(path + "sciter-logger/src/logger.js")
+                Logger = module.default
+
+                module = Sciter.import(path + "sciter-utils/src/utils.js")
+                Utils = module.default
+
+                // force show toggle icon
+                document.$("div.hbox").classList.toggle("hidden")
+
+                // capture unhandled exceptions
+                Logger.capture()
+
+                // initialize logger
+                Logger.init()
+
+                // attach logger to console
+                Logger.attach()
+
+                // redirect logger output to plaintext
+                Logger.plaintext(document.$("plaintext#logger"))
+
+                // log sciter version
+                console.log(Utils.sciterInfo())
+
+                // close window on escape key press
+                Utils.closeWindowOnEscape(Window.this)
+
+                // bring window to front and set input focus
+                if (!Window.this.activate(true)) console.error("Activate window - FAILED")
+
+                const argv = Window.this.scapp?.argv
+
+                if (!argv) throw new Error("missing command line arguments")
+
+                entry = Sys.cwd() + Utils.getSeparator() + argv[argv.length - 1].replace(/\//g, Utils.getSeparator())
+
+                console.debug(`Entry ${entry}`)
+
+                // load content
+                reload()
+
+                // watch content
+                document.$("toggle#autoReload").click()
+            })
+
+            document.on("click", "button#reload", function () {
+                console.debug("Reload queued for in 2 seconds...")
+
+                // debounce reload
+                Utils.debounce(reload, 2000)
+            })
+
+            document.on("click", "toggle#debug", function (_event, element) {
+                //console.log("Toggle debug", element.checked);
+
+                // show/hide debug messages
+                document.style.variables({
+                    displayDebug: element.checked ? "inline" : "none"
+                })
+
+                // scroll to last item
+                document.$("plaintext#logger").lastElementChild.scrollIntoView({ behavior: "smooth" })
+            })
+
+            document.on("close", function () {
+                // stop to watch dir
+                console.debug("Stop watch")
+
+                if (watch) watch.close()
+            })
+
+            document.on("click", "toggle#autoReload", function (event, element) {
+                if (element.checked) {
+                    const path = Utils.splitPath(entry)
+
+                    // watch source dir
+                    watch = Sys.fs.watch(path.dirname, watchCallback)
+
+                    console.log(`Watch dir ${path.dirname}`)
+                } else {
+                    if (watch) {
+                        // stop to watch dir
+                        console.log("Stop watch")
+                        watch.close()
+                    }
+
+                    watch = undefined
+                }
+            })
+
+            /**
+             * Watch callback
+             * @param {string} file
+             * @param {number} _type
+             * @returns {void}
+             */
+            function watchCallback(file, _type) {
+                try {
+                    //console.debug(`Watch - ${file} - ${_type}`);
+
+                    if (isReloading) {
+                        console.warn("Watch - reload already in progress..")
+                        return
+                    }
+
+                    const path = Utils.splitPath(file)
+
+                    // ignore node modules changes
+                    if (path.basename.includes("node_modules")) {
+                        console.debug("Watch - ignore node modules")
+                        return
+                    }
+
+                    // ignore file with extensions not in the list
+                    const extensions = ["css", "htm", "html", "js"]
+
+                    if (!extensions.includes(path.extension)) {
+                        console.debug(`Watch - ignore extension - ${path.extension}`)
+                        return
+                    }
+
+                    console.debug(`Watch - file updated - ${file}`)
+
+                    // debounce reload
+                    Utils.debounce(reload, 2000)
+                } catch (error) {
+                    console.exception("Watch exception -", error)
+                }
+            }
+
+            /**
+             * Reload application
+             * @param {Event} _event
+             * @param {Element} _element
+             * @returns {void}
+             */
+            function reload(_event, _element) {
+                if (isReloading) {
+                    console.debug("Reload app already in progress...")
+                    return
+                }
+
+                try {
+                    if (isReloading === false) console.log("Reload app...")
+
+                    isReloading = true
+
+                    const windowExists = Boolean(window)
+                    let x, y, w, h
+
+                    if (windowExists) {
+                        //console.debug("window dimensions", Utils.windowRect(window, true));
+                        // get window origin
+                        ;[x, y, w, h] = Utils.windowRect(window, true)
+                    }
+
+                    // close application
+                    if (window && !window.close()) throw new Error("Close window - FAILED")
+
+                    /*
+        // potentially test code before showing it
+        let module = Sciter.import(entry);
+
+        console.debug("module", typeof module, module);
+        */
+
+                    // restart application
+                    window = new Window({
+                        //type: Window.FRAME_WINDOW,
+                        parent: Window.this,
+                        url: entry,
+                        // only center window on first start, next times use left top corner
+                        alignment: windowExists ? undefined : 5,
+                        x: x ? x + w / 2 : undefined,
+                        y: y ? y + h / 2 : undefined
+                        //screen: 0,
+                    })
+
+                    // move watch window above main window
+                    const [mLeft, mTop, , mHeight] = Utils.windowRect(window, true)
+                    const [, wHeight] = Utils.windowDimensions(Window.this, true)
+
+                    //console.debug("window dimensions", mLeft, mTop, mWidth, mHeight);
+
+                    let wTop = mTop - wHeight
+
+                    // if not possible to move it above, move it below
+                    if (wTop < 0) wTop = mTop + mHeight
+
+                    Window.this.move(mLeft, wTop)
+                } catch (error) {
+                    console.exception("Reload exception -", error)
+                } finally {
+                    isReloading = false
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div .hbox .hidden>
+            <button #reload accesskey="!F5">Reload</button>
+            <toggle #autoReload checked>
+                <caption>Auto-reload</caption>
+            </toggle>
+            <toggle #debug>
+                <caption>Debug</caption>
+            </toggle>
+            <button #inspector hidden></button>
+        </div>
+        <plaintext #logger readonly />
+    </body>
+</html>

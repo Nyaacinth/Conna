@@ -1,0 +1,35 @@
+[
+    {
+        "label": "Run Scapp",
+        "command": "bun run scapp",
+        "use_new_terminal": false,
+        "allow_concurrent_runs": false,
+        "reveal": "always",
+        "hide": "never",
+        "shell": "system",
+        "show_summary": true,
+        "show_output": true
+    },
+    {
+        "label": "Stop Sciter",
+        "command": "bun run stop",
+        "use_new_terminal": false,
+        "allow_concurrent_runs": false,
+        "reveal": "always",
+        "hide": "never",
+        "shell": "system",
+        "show_summary": true,
+        "show_output": true
+    }
+    {
+        "label": "Run Rspack Watch",
+        "command": "bun run watch",
+        "use_new_terminal": false,
+        "allow_concurrent_runs": false,
+        "reveal": "always",
+        "hide": "never",
+        "shell": "system",
+        "show_summary": true,
+        "show_output": true
+    }
+]
