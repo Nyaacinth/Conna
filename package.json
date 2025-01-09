@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Conna App",
     "main": "dist/index.html",
-    "packageManager": "bun@1.1.42",
+    "packageManager": "bun@1.1.43",
     "sciterVersion": "5.0.3.21",
     "scripts": {
         "install-sdk": "bun run ./scripts/install.mjs cleanup",
@@ -13,10 +13,10 @@
         "stop": "bun run ./scripts/stop.mjs",
         "scapp32": "bun run ./scripts/start.mjs scapp32",
         "usciter32": "bun run ./scripts/start.mjs usciter32",
-        "sciter-build": "bun run ./scripts/build.mjs",
+        "build": "bun run ./scripts/build.mjs",
         "$$separator1$$": "echo 'why?'",
-        "build": "rspack build",
-        "watch": "rspack build --watch"
+        "rspack-build": "rspack build",
+        "rspack-watch": "rspack build --watch"
     },
     "dependencies": {
         "preact": "^10.25.4"

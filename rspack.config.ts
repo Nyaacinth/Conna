@@ -1,12 +1,18 @@
 import { defineConfig } from "@rspack/cli"
 import { rspack } from "@rspack/core"
 
-// Target browsers, see: https://github.com/browserslist/browserslist
+// See: https://github.com/browserslist/browserslist
 const targets = ["chrome >= 87", "edge >= 88", "firefox >= 78", "safari >= 14"]
 
 export default defineConfig({
     entry: {
         main: "./src/index.tsx"
+    },
+    output: {
+        clean: true
+    },
+    experiments: {
+        css: true
     },
     resolve: {
         extensions: ["...", ".ts", ".tsx", ".jsx"],
@@ -73,7 +79,8 @@ export default defineConfig({
                                     importSource: "preact"
                                 }
                             }
-                        }
+                        },
+                        env: { targets }
                     }
                 },
                 type: "javascript/auto"
@@ -94,19 +101,26 @@ export default defineConfig({
                                     importSource: "preact"
                                 }
                             }
-                        }
+                        },
+                        env: { targets }
                     }
                 },
                 type: "javascript/auto"
             },
             {
                 test: /\.css$/i,
-                use: [rspack.CssExtractRspackPlugin.loader, "css-loader"],
-                type: "javascript/auto"
+                use: {
+                    loader: "builtin:lightningcss-loader",
+                    options: { targets }
+                },
+                type: "css/auto"
             }
         ]
     },
-    plugins: [new rspack.HtmlRspackPlugin({ template: "./index.html" }), new rspack.CssExtractRspackPlugin({})],
+    plugins: [
+        new rspack.HtmlRspackPlugin({ template: "./index.html", filename: "main.htm" /* to make Quark happy */ }),
+        new rspack.CssExtractRspackPlugin({})
+    ],
     optimization: {
         minimizer: [
             new rspack.SwcJsMinimizerRspackPlugin(),
