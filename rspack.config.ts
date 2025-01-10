@@ -16,7 +16,7 @@ export default defineConfig({
         css: true
     },
     resolve: {
-        extensions: ["...", ".ts", ".tsx", ".jsx"],
+        extensions: [".ts", ".tsx", ".jsx"],
         alias: {
             ["react"]: "preact/compat",
             ["react-dom/test-utils"]: "preact/test-utils",
@@ -27,8 +27,12 @@ export default defineConfig({
     module: {
         rules: [
             {
-                test: /\.(png|svg|jpg)$/,
-                type: "asset/resource"
+                test: /\.(png|jpg)$/,
+                type: "asset"
+            },
+            {
+                resourceQuery: /raw/,
+                type: "asset/source"
             },
             {
                 test: /\.js$/,
