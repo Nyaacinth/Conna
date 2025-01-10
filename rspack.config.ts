@@ -1,5 +1,6 @@
 import { defineConfig } from "@rspack/cli"
 import { rspack } from "@rspack/core"
+import { UnoCSSRspackPlugin } from "@unocss/webpack/rspack"
 
 // See: https://github.com/browserslist/browserslist
 const targets = ["chrome >= 87", "edge >= 88", "firefox >= 78", "safari >= 14"]
@@ -118,6 +119,7 @@ export default defineConfig({
         ]
     },
     plugins: [
+        UnoCSSRspackPlugin(),
         new rspack.HtmlRspackPlugin({ template: "./index.html", filename: "main.htm" /* to make Quark happy */ }),
         new rspack.CssExtractRspackPlugin({})
     ],
