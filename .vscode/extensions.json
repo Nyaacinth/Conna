@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "oven.bun-vscode",
+        "esbenp.prettier-vscode",
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml",
+        "antfu.unocss"
+    ]
+}
