@@ -13,12 +13,12 @@
         "preact": "^10.25.4",
         "react-use": "^17.6.0",
         "swr": "^2.3.0",
-        "wouter-preact": "^3.3.5",
+        "wouter-preact": "^3.4.0",
       },
       "devDependencies": {
         "@prefresh/core": "^1.5.3",
         "@prefresh/utils": "^1.2.0",
-        "@rspack/cli": "^1.2.1",
+        "@rspack/cli": "^1.2.2",
         "@rspack/core": "^1.2.2",
         "@rspack/plugin-preact-refresh": "^1.1.2",
         "@swc/plugin-prefresh": "^6.0.4",
@@ -232,7 +232,7 @@
 
     "@rspack/binding-win32-x64-msvc": ["@rspack/binding-win32-x64-msvc@1.2.2", "https://registry.npmmirror.com/@rspack/binding-win32-x64-msvc/-/binding-win32-x64-msvc-1.2.2.tgz", { "os": "win32", "cpu": "x64" }, "sha512-eeAvaN831KG553cMSHkVldyk6YQn4ujgRHov6r1wtREq7CD3/ka9LMkJUepCN85K7XtwYT0N4KpFIQyf5GTGoA=="],
 
-    "@rspack/cli": ["@rspack/cli@1.2.1", "https://registry.npmmirror.com/@rspack/cli/-/cli-1.2.1.tgz", { "dependencies": { "@discoveryjs/json-ext": "^0.5.7", "@rspack/dev-server": "1.0.10", "colorette": "2.0.19", "exit-hook": "^4.0.0", "interpret": "^3.1.1", "rechoir": "^0.8.0", "webpack-bundle-analyzer": "4.6.1", "yargs": "17.6.2" }, "peerDependencies": { "@rspack/core": "^1.0.0-alpha || ^1.x", "@rspack/tracing": "^1.x" }, "optionalPeers": ["@rspack/tracing"], "bin": { "rspack": "bin/rspack.js" } }, "sha512-lRPjnGJh3t2BYw7sT7V3iWdazqmEi6+Id+4pjWgKbRGG04A3opW0cJBewpFzSGaelpzsNY8Vv0jhsN5nlHNB2g=="],
+    "@rspack/cli": ["@rspack/cli@1.2.2", "https://registry.npmmirror.com/@rspack/cli/-/cli-1.2.2.tgz", { "dependencies": { "@discoveryjs/json-ext": "^0.5.7", "@rspack/dev-server": "1.0.10", "colorette": "2.0.19", "exit-hook": "^4.0.0", "interpret": "^3.1.1", "rechoir": "^0.8.0", "webpack-bundle-analyzer": "4.6.1", "yargs": "17.6.2" }, "peerDependencies": { "@rspack/core": "^1.0.0-alpha || ^1.x", "@rspack/tracing": "^1.x" }, "optionalPeers": ["@rspack/tracing"], "bin": { "rspack": "bin/rspack.js" } }, "sha512-d1wsIqmQHjqfo2KKx9TOOW7M4PnD2Viv9FbosXRW/lisvPFJUTwg87onv2x3z4KTCHqplH9T4MCeKmCj+ZNKOw=="],
 
     "@rspack/core": ["@rspack/core@1.2.2", "https://registry.npmmirror.com/@rspack/core/-/core-1.2.2.tgz", { "dependencies": { "@module-federation/runtime-tools": "0.8.4", "@rspack/binding": "1.2.2", "@rspack/lite-tapable": "1.0.1", "caniuse-lite": "^1.0.30001616" }, "peerDependencies": { "@rspack/tracing": "^1.x", "@swc/helpers": ">=0.5.1" }, "optionalPeers": ["@rspack/tracing", "@swc/helpers"] }, "sha512-EeHAmY65Uj62hSbUKesbrcWGE7jfUI887RD03G++Gj8jS4WPHEu1TFODXNOXg6pa7zyIvs2BK0Bm16Kwz8AEaQ=="],
 
@@ -1096,7 +1096,7 @@
 
     "which": ["which@2.0.2", "https://registry.npmmirror.com/which/-/which-2.0.2.tgz", { "dependencies": { "isexe": "^2.0.0" }, "bin": { "node-which": "./bin/node-which" } }, "sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA=="],
 
-    "wouter-preact": ["wouter-preact@3.3.5", "https://registry.npmmirror.com/wouter-preact/-/wouter-preact-3.3.5.tgz", { "dependencies": { "mitt": "^3.0.1", "regexparam": "^3.0.0" }, "peerDependencies": { "preact": "^10.0.0" } }, "sha512-4IcH+UQusSrrhTl6xuUqbaL4FHbk3BocXdY6xGarSYOlv1/ZcZD45YMPW/Ef7hFI2ZGgMG3IER1UglhzAmBp/Q=="],
+    "wouter-preact": ["wouter-preact@3.4.0", "https://registry.npmmirror.com/wouter-preact/-/wouter-preact-3.4.0.tgz", { "dependencies": { "mitt": "^3.0.1", "regexparam": "^3.0.0" }, "peerDependencies": { "preact": "^10.0.0" } }, "sha512-FrIKkSunTixx2p58Xxx7GZ7PuIWYWMXwMeDtvLGgSZ3gDpno+nbAnb2ncKuslpNvtXsRtj7eVlfqou8Swqaf1g=="],
 
     "wrap-ansi": ["wrap-ansi@7.0.0", "https://registry.npmmirror.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz", { "dependencies": { "ansi-styles": "^4.0.0", "string-width": "^4.1.0", "strip-ansi": "^6.0.0" } }, "sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q=="],
 
