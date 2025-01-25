@@ -49,7 +49,8 @@ export default defineConfig({
                                     syntax: "ecmascript"
                                 }
                             },
-                            env: { targets }
+                            env: { targets, mode: "usage" },
+                            isModule: "unknown"
                         }
                     }
                 ],
@@ -66,7 +67,8 @@ export default defineConfig({
                                     syntax: "typescript"
                                 }
                             },
-                            env: { targets }
+                            env: { targets, mode: "usage" },
+                            isModule: "unknown"
                         }
                     }
                 ],
@@ -95,7 +97,8 @@ export default defineConfig({
                                 }
                             }
                         },
-                        env: { targets }
+                        env: { targets, mode: "usage" },
+                        isModule: "unknown"
                     }
                 },
                 type: "javascript/auto"
@@ -123,7 +126,8 @@ export default defineConfig({
                                 }
                             }
                         },
-                        env: { targets }
+                        env: { targets, mode: "usage" },
+                        isModule: "unknown"
                     }
                 },
                 type: "javascript/auto"
