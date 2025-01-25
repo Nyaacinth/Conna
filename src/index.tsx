@@ -1,5 +1,6 @@
 import { FluentProvider, webDarkTheme, webLightTheme } from "@fluentui/react-components"
-import { FunctionComponent, render } from "preact"
+import type { FunctionComponent } from "preact"
+import { render } from "preact"
 import { useMemo } from "preact/hooks"
 import { useMedia } from "react-use"
 import { Route, Router } from "wouter-preact"
