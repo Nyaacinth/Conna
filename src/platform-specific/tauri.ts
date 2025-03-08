@@ -64,7 +64,7 @@ function doTauriInit() {
     document.head.appendChild(styleElement)
 
     // Disable F5, Ctrl+R, and Cmd+R from reloading the page
-    document.addEventListener("keydown", function (event) {
+    document.addEventListener("keydown", (event) => {
         if (event.key === "F5" || (event.ctrlKey && event.key === "r") || (event.metaKey && event.key === "r")) {
             event.preventDefault()
         }
