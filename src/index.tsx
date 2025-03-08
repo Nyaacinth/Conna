@@ -5,6 +5,7 @@ import { useMemo } from "preact/hooks"
 import { useMedia } from "react-use"
 import { Route, Router } from "wouter-preact"
 import { Splash } from "./pages/Splash"
+import { useTauriInit } from "./platform-specific/tauri"
 
 import "@unocss/reset/tailwind-compat.css"
 import "./index.css"
@@ -13,6 +14,8 @@ import "uno.css"
 
 const App: FunctionComponent = () => {
     const isDarkMode = useMedia("(prefers-color-scheme: dark)", false)
+
+    useTauriInit()
 
     return (
         <FluentProvider theme={isDarkMode ? webDarkTheme : webLightTheme} className="w-full h-full">
