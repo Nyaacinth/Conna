@@ -71,9 +71,9 @@ function doTauriInit() {
     })
 
     // Only allow context menu on editable elements
-    document.addEventListener("contextmenu", (e) => {
-        if (isEditableElement(e.target as HTMLElement)) return
-        e.preventDefault()
+    document.addEventListener("contextmenu", (event) => {
+        if (isEditableElement(event.target as HTMLElement)) return
+        event.preventDefault()
     })
 
     // Paired with `"visible": false` in `tauri.conf.json` to show window after initialization
