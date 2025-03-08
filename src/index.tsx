@@ -8,7 +8,6 @@ import { Splash } from "./pages/Splash"
 import { useTauriInit } from "./platform-specific/tauri"
 
 import "@unocss/reset/tailwind-compat.css"
-import "./index.css"
 
 import "uno.css"
 
