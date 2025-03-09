@@ -1,4 +1,4 @@
-export const EDITABLE_SELECTORS = [
+export const $EDITABLE_SELECTORS = [
     'input[type="text"]',
     'input[type="password"]',
     'input[type="email"]',
@@ -11,7 +11,7 @@ export const EDITABLE_SELECTORS = [
     '[contenteditable="true"]'
 ]
 
-export const WEBVIEW_NATIVEIFY_CSS = `
+export const $WEBVIEW_NATIVEIFY_CSS = `
     html {
         overscroll-behavior: none;
         overflow: hidden;
@@ -34,7 +34,7 @@ export const WEBVIEW_NATIVEIFY_CSS = `
         user-select: none;
         cursor: default;
     }
-    ${EDITABLE_SELECTORS.join(", ")} {
+    ${$EDITABLE_SELECTORS.join(", ")} {
         -webkit-user-select: text;
         user-select: text;
         cursor: text;

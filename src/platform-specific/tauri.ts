@@ -1,10 +1,10 @@
 import { isTauri } from "@tauri-apps/api/core"
 import { getCurrentWindow } from "@tauri-apps/api/window"
 import { useEffect } from "preact/hooks"
-import { EDITABLE_SELECTORS, WEBVIEW_NATIVEIFY_CSS } from "./tauri-statics.macro" with { type: "macro" }
+import { $EDITABLE_SELECTORS, $WEBVIEW_NATIVEIFY_CSS } from "./tauri-statics.macro" with { type: "macro" }
 
 function isEditableElement(elm: HTMLElement) {
-    for (const selector of EDITABLE_SELECTORS) {
+    for (const selector of $EDITABLE_SELECTORS) {
         if (elm.matches(selector)) {
             return true
         }
@@ -15,7 +15,7 @@ function isEditableElement(elm: HTMLElement) {
 function doTauriInit() {
     // Inject webview-nativeify CSS
     const styleElement = document.createElement("style")
-    styleElement.innerHTML = WEBVIEW_NATIVEIFY_CSS
+    styleElement.innerHTML = $WEBVIEW_NATIVEIFY_CSS
     document.head.appendChild(styleElement)
 
     // Disable F5, Ctrl+R, and Cmd+R from reloading the page
