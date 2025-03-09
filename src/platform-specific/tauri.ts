@@ -33,7 +33,6 @@ const WEBVIEW_NATIVEIFY_CSS = `
         width: 100%;
         height: 100%;
     }
-
     html {
         -webkit-user-select: none;
         user-select: none;
@@ -47,6 +46,7 @@ const WEBVIEW_NATIVEIFY_CSS = `
 `
     .replaceAll("    ", "")
     .replaceAll("\n", " ")
+    .trim()
 
 function isEditableElement(elm: HTMLElement) {
     for (const selector of EDITABLE_SELECTORS) {
