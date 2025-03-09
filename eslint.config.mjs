@@ -9,7 +9,36 @@ export default [
         ignores: ["dist/**/*", "node_modules/**/*", "src-tauri/**/*"]
     },
     {
+        files: ["**/*.macro.ts"],
+        languageOptions: {
+            parser: typescriptParser
+        },
+        plugins: {
+            ["@typescript-eslint"]: typescriptPlugin
+        },
+        rules: {
+            "@typescript-eslint/adjacent-overload-signatures": "warn",
+            "@typescript-eslint/consistent-type-imports": "warn",
+            "@typescript-eslint/no-extra-non-null-assertion": "warn",
+            "@typescript-eslint/no-inferrable-types": "warn",
+            "@typescript-eslint/no-loss-of-precision": "warn",
+            "@typescript-eslint/no-misused-new": "warn",
+            "@typescript-eslint/no-this-alias": "warn",
+            "@typescript-eslint/prefer-as-const": "warn",
+            "@typescript-eslint/prefer-namespace-keyword": "warn",
+            "@typescript-eslint/naming-convention": [
+                "error",
+                {
+                    selector: "default",
+                    format: null,
+                    prefix: ["$"]
+                }
+            ]
+        }
+    },
+    {
         files: ["**/*.ts", "**/*.tsx"],
+        ignores: ["**/*.macro.ts"],
         languageOptions: {
             parser: typescriptParser,
             parserOptions: {
