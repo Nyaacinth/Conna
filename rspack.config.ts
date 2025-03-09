@@ -3,6 +3,7 @@ import { rspack } from "@rspack/core"
 import PreactRefreshPlugin from "@rspack/plugin-preact-refresh"
 import { UnoCSSRspackPlugin } from "@unocss/webpack/rspack"
 import path from "node:path"
+import MacrosPlugin from "unplugin-macros/webpack"
 
 // See: https://github.com/browserslist/browserslist
 const targets = ["chrome >= 87", "edge >= 88", "firefox >= 78", "safari >= 14"]
@@ -143,6 +144,7 @@ export default defineConfig({
         ]
     },
     plugins: [
+        MacrosPlugin(),
         UnoCSSRspackPlugin(),
         new rspack.HtmlRspackPlugin({ template: "./index.html" }),
         new rspack.CssExtractRspackPlugin({}),
@@ -151,7 +153,7 @@ export default defineConfig({
     ].filter(Boolean),
     optimization: {
         minimizer: [
-            new rspack.SwcJsMinimizerRspackPlugin(),
+            new rspack.SwcJsMinimizerRspackPlugin() && undefined,
             new rspack.LightningCssMinimizerRspackPlugin({
                 minimizerOptions: { targets }
             })
