@@ -149,7 +149,8 @@ export default defineConfig({
         new rspack.HtmlRspackPlugin({ template: "./index.html" }),
         new rspack.CssExtractRspackPlugin({}),
         isDev && new PreactRefreshPlugin({}),
-        isDev && new rspack.HotModuleReplacementPlugin()
+        isDev && new rspack.HotModuleReplacementPlugin(),
+        new rspack.CopyRspackPlugin({ patterns: [{ from: "public", noErrorOnMissing: true }] })
     ].filter(Boolean),
     optimization: {
         minimizer: [

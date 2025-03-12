@@ -10,10 +10,10 @@
         "rspack-dev": "rspack dev"
     },
     "dependencies": {
-        "@fluentui/react-components": "^9.60.0",
+        "@fluentui/react-components": "^9.60.1",
         "@fluentui/react-icons": "^2.0.279",
         "@tauri-apps/api": "^2.3.0",
-        "jotai": "^2.12.1",
+        "jotai": "^2.12.2",
         "preact": "^10.26.4",
         "react-use": "^17.6.0",
         "swr": "^2.3.3",
@@ -22,14 +22,14 @@
     "devDependencies": {
         "@prefresh/core": "^1.5.3",
         "@prefresh/utils": "^1.2.0",
-        "@rspack/cli": "^1.2.7",
-        "@rspack/core": "^1.2.7",
+        "@rspack/cli": "^1.2.8",
+        "@rspack/core": "^1.2.8",
         "@rspack/plugin-preact-refresh": "^1.1.2",
         "@swc/plugin-prefresh": "^7.0.0",
         "@tauri-apps/cli": "^2.3.1",
         "@types/react": "^19.0.10",
-        "@typescript-eslint/eslint-plugin": "^8.26.0",
-        "@typescript-eslint/parser": "^8.26.0",
+        "@typescript-eslint/eslint-plugin": "^8.26.1",
+        "@typescript-eslint/parser": "^8.26.1",
         "@unocss/preset-wind3": "^66.1.0-beta.3",
         "@unocss/reset": "^66.1.0-beta.3",
         "@unocss/transformer-variant-group": "^66.1.0-beta.3",
@@ -40,7 +40,7 @@
         "eslint-plugin-react-hooks": "^5.2.0",
         "prettier": "^3.5.3",
         "unocss": "^66.1.0-beta.3",
-        "unplugin-macros": "^0.16.1"
+        "unplugin-macros": "^0.16.2"
     },
     "resolve": {
         "alias": {
