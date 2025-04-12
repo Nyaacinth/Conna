@@ -36,7 +36,7 @@
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^5.2.0",
         "prettier": "^3.5.3",
-        "sass": "^1.86.3",
+        "sass-embedded": "^1.86.3",
         "sass-loader": "^16.0.5",
         "unplugin-macros": "^0.16.3"
     },

@@ -1,6 +1,7 @@
 import { defineConfig } from "@rspack/cli"
 import { rspack } from "@rspack/core"
 import PreactRefreshPlugin from "@rspack/plugin-preact-refresh"
+import { createRequire } from "node:module"
 import path from "node:path"
 import MacrosPlugin from "unplugin-macros/rspack"
 
@@ -158,8 +159,13 @@ export default defineConfig({
                     {
                         loader: "sass-loader",
                         options: {
-                            api: "modern-compiler"
+                            api: "modern-compiler",
+                            implementation: createRequire(import.meta.url).resolve("sass-embedded")
                         }
+                    },
+                    {
+                        loader: "builtin:lightningcss-loader",
+                        options: { targets }
                     }
                 ],
                 type: "css/auto"
