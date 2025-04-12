@@ -1,7 +1,6 @@
 import { defineConfig } from "@rspack/cli"
 import { rspack } from "@rspack/core"
 import PreactRefreshPlugin from "@rspack/plugin-preact-refresh"
-import { UnoCSSRspackPlugin } from "@unocss/webpack/rspack"
 import path from "node:path"
 import MacrosPlugin from "unplugin-macros/rspack"
 
@@ -32,7 +31,19 @@ export default defineConfig({
     module: {
         rules: [
             {
-                test: /\.(png|svg|jpg)$/,
+                test: /\.(bmp|png|jpg|jpeg|gif|svg|ico|webp)$/,
+                type: "asset"
+            },
+            {
+                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac|opus|mov|m4a|vtt)$/,
+                type: "asset"
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                type: "asset"
+            },
+            {
+                test: /\.(pdf|txt)$/,
                 type: "asset"
             },
             {
@@ -140,12 +151,28 @@ export default defineConfig({
                     options: { targets }
                 },
                 type: "css/auto"
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            api: "modern-compiler"
+                        }
+                    }
+                ],
+                type: "css/auto"
             }
-        ]
+        ],
+        parser: {
+            "css/auto": {
+                namedExports: false
+            }
+        }
     },
     plugins: [
         MacrosPlugin(),
-        UnoCSSRspackPlugin(),
         new rspack.HtmlRspackPlugin({ template: "./index.html" }),
         new rspack.CssExtractRspackPlugin({}),
         isDev && new PreactRefreshPlugin({}),
