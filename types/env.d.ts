@@ -20,10 +20,6 @@ declare module "*.scss" {}
 declare module "*.sass" {}
 
 // images
-declare module "*.bmp" {
-    const src: string
-    export default src
-}
 declare module "*.png" {
     const src: string
     export default src
@@ -44,11 +40,47 @@ declare module "*.svg" {
     const src: string
     export default src
 }
-declare module "*.ico" {
+declare module "*.bmp" {
     const src: string
     export default src
 }
 declare module "*.webp" {
+    const src: string
+    export default src
+}
+declare module "*.ico" {
+    const src: string
+    export default src
+}
+declare module "*.apng" {
+    const src: string
+    export default src
+}
+declare module "*.avif" {
+    const src: string
+    export default src
+}
+declare module "*.tif" {
+    const src: string
+    export default src
+}
+declare module "*.tiff" {
+    const src: string
+    export default src
+}
+declare module "*.jfif" {
+    const src: string
+    export default src
+}
+declare module "*.pjpeg" {
+    const src: string
+    export default src
+}
+declare module "*.pjp" {
+    const src: string
+    export default src
+}
+declare module "*.cur" {
     const src: string
     export default src
 }

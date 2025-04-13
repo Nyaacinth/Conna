@@ -32,7 +32,7 @@ export default defineConfig({
     module: {
         rules: [
             {
-                test: /\.(bmp|png|jpg|jpeg|gif|svg|ico|webp)$/,
+                test: /\.(png|jpg|jpeg|gif|svg|bmp|webp|ico|apng|avif|tif|tiff|jfif|pjpeg|pjp|cur)$/,
                 type: "asset"
             },
             {
