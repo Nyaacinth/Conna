@@ -157,15 +157,15 @@ export default defineConfig({
                 test: /\.s[ac]ss$/i,
                 use: [
                     {
+                        loader: "builtin:lightningcss-loader",
+                        options: { targets }
+                    },
+                    {
                         loader: "sass-loader",
                         options: {
                             api: "modern-compiler",
                             implementation: createRequire(import.meta.url).resolve("sass-embedded")
                         }
-                    },
-                    {
-                        loader: "builtin:lightningcss-loader",
-                        options: { targets }
                     }
                 ],
                 type: "css/auto"
