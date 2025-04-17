@@ -53,38 +53,34 @@ export default defineConfig({
             },
             {
                 test: /\.js$/,
-                use: [
-                    {
-                        loader: "builtin:swc-loader",
-                        options: {
-                            jsc: {
-                                parser: {
-                                    syntax: "ecmascript"
-                                }
-                            },
-                            env: { targets, mode: "usage" },
-                            isModule: "unknown"
-                        }
+                use: {
+                    loader: "builtin:swc-loader",
+                    options: {
+                        jsc: {
+                            parser: {
+                                syntax: "ecmascript"
+                            }
+                        },
+                        env: { targets, mode: "usage" },
+                        isModule: "unknown"
                     }
-                ],
+                },
                 type: "javascript/auto"
             },
             {
                 test: /\.ts$/,
-                use: [
-                    {
-                        loader: "builtin:swc-loader",
-                        options: {
-                            jsc: {
-                                parser: {
-                                    syntax: "typescript"
-                                }
-                            },
-                            env: { targets, mode: "usage" },
-                            isModule: "unknown"
-                        }
+                use: {
+                    loader: "builtin:swc-loader",
+                    options: {
+                        jsc: {
+                            parser: {
+                                syntax: "typescript"
+                            }
+                        },
+                        env: { targets, mode: "usage" },
+                        isModule: "unknown"
                     }
-                ],
+                },
                 type: "javascript/auto"
             },
             {
