@@ -1,0 +1,18 @@
+import { Button, VerticalBox } from "std-widgets.slint";
+import { Utils } from "./globals/utils.slint";
+
+export component MainApp inherits Window {
+    property <string> name: "World";
+    VerticalBox {
+        Text {
+            text: "Hello, \{name}";
+        }
+
+        Button {
+            text: "Say Hi to Slint";
+            clicked => {
+                name = "Slint with App v\{Utils.get-app-version()}";
+            }
+        }
+    }
+}
