@@ -1,0 +1,12 @@
+import { Button, VerticalBox } from "std-widgets.slint";
+import { Utils } from "./globals/utils.slint";
+
+export component MainApp inherits Window {
+    title: "\{Utils.get-app-name()}";
+    preferred-width: 816px;
+    preferred-height: 624px;
+
+    Text {
+        text: "Hello";
+    }
+}
