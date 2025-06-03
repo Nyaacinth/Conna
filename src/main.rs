@@ -3,7 +3,7 @@
 
 mod register_globals;
 
-pub mod frontend {
+mod frontend {
     slint::include_modules!();
 }
 
