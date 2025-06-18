@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "avaloniateam.vscode-avalonia",
+        "ionide.ionide-fsharp",
+        "dabbinavo.xamlstyler",
+        "tintoy.msbuild-project-tools",
+        "redhat.vscode-xml"
+    ]
+}
