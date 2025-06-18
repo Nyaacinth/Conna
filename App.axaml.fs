@@ -13,7 +13,6 @@ type App() =
 
     override this.OnFrameworkInitializationCompleted() =
 
-
         match this.ApplicationLifetime with
         | :? IClassicDesktopStyleApplicationLifetime as desktop ->
             desktop.MainWindow <- MainWindow(DataContext = MainWindowViewModel())
