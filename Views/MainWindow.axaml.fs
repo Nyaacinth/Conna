@@ -2,10 +2,10 @@ namespace Conna.Views
 
 open Avalonia
 open Avalonia.Markup.Xaml
-open Ursa.Controls
+open Avalonia.Controls
 
 type MainWindow() as this =
-    inherit UrsaWindow()
+    inherit Window()
 
     do this.InitializeComponent()
 

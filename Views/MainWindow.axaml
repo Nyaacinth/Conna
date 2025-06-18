@@ -1,4 +1,4 @@
-<u:UrsaWindow
+<Window
     x:Class="Conna.Views.MainWindow"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -22,4 +22,4 @@
         VerticalAlignment="Center"
         Text="{Binding Greeting}" />
 
-</u:UrsaWindow>
+</Window>
