@@ -6,20 +6,24 @@ open Avalonia.Controls.Templates
 open Conna.ViewModels
 
 type ViewLocator() =
+    static let Registration = Collections.Generic.Dictionary<Type, Func<Control>>()
+
+    static member Register<'TViewModel, 'TView when 'TView: (new: unit -> 'TView) and 'TView :> Control>() =
+        Registration.Add(typeof<'TViewModel>, Func<Control>(fun () -> new 'TView() :> Control))
+
+    static member Register<'TViewModel, 'TView when 'TView :> Control>(factory: Func<'TView>) =
+        Registration.Add(typeof<'TViewModel>, Func<Control>(fun () -> factory.Invoke() :> Control))
+
     interface IDataTemplate with
 
-        member _.Build data =
+        member _.Build(data: obj) =
             if isNull data then
                 null
             else
-                let name =
-                    data.GetType().FullName.Replace("ViewModel", "View", StringComparison.Ordinal)
+                let typ = data.GetType()
 
-                let instanceType = Type.GetType name
-
-                if isNull instanceType then
-                    upcast TextBlock(Text = sprintf "Not Found: %s" name)
-                else
-                    downcast Activator.CreateInstance instanceType
+                match Registration.TryGetValue typ with
+                | true, factory -> factory.Invoke()
+                | false, _ -> TextBlock(Text = sprintf "Not Found: %s" typ.Name) :> Control
 
         member _.Match data = data :? ViewModelBase
