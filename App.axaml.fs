@@ -10,12 +10,12 @@ open Conna.Views
 type App() =
     inherit Application()
 
-    override this.Initialize() = AvaloniaXamlLoader.Load(this)
+    override this.Initialize() = AvaloniaXamlLoader.Load this
 
     override this.OnFrameworkInitializationCompleted() =
 
         // Remove Avalonia data validation to avoid duplicate validations from both Avalonia and CT
-        BindingPlugins.DataValidators.RemoveAt(0)
+        BindingPlugins.DataValidators.RemoveAt 0
 
         match this.ApplicationLifetime with
         | :? IClassicDesktopStyleApplicationLifetime as desktop ->
