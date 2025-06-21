@@ -7,6 +7,8 @@
     xmlns:u="https://irihi.tech/ursa"
     xmlns:vm="using:Conna.ViewModels"
     Title="Conna"
+    Width="816"
+    Height="624"
     d:DesignHeight="624"
     d:DesignWidth="816"
     x:DataType="vm:MainWindowViewModel"
