@@ -1,0 +1,25 @@
+name: conna
+description: "Conna"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_hooks: ^0.21.3+1
+  hooks_riverpod: ^2.6.1
+  shared_preferences: ^2.5.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  custom_lint: ^0.7.6
+  riverpod_lint: ^2.6.5
+  flutter_hooks_lint: ^1.4.0
+
+flutter:
+  uses-material-design: true
