@@ -1,8 +1,7 @@
 package conna
 
 object Conna {
-    @main
-    def main(text: String) = {
+    def main(args: Array[String]): Unit = {
         println("Hello")
     }
 }
