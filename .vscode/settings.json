@@ -1,0 +1,15 @@
+{
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "[json][jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[scala]": {
+        "editor.defaultFormatter": "scalameta.metals"
+    },
+    "files.watcherExclude": {
+        "**/target": true
+    }
+}

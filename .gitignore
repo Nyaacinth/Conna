@@ -1,0 +1,17 @@
+# metals & bsp
+.bsp/
+.metals/
+
+# mill
+out/
+
+# jvm
+*.class
+*.log
+
+# virtual machine crash logs
+hs_err_pid*
+
+# os
+.DS_Store
+Thumbs.db
