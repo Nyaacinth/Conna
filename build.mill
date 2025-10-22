@@ -4,7 +4,6 @@
 package build
 import mill.*, scalalib.*
 
-object conna extends ScalaModule {
+object conna extends ScalaModule:
     def scalaVersion = "3.7.3"
     def mvnDeps = Seq()
-}
