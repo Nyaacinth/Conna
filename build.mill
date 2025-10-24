@@ -2,6 +2,7 @@
 //// SNIPPET:BUILD
 
 package build
+
 import mill.*, scalalib.*
 
 object conna extends ScalaModule:
